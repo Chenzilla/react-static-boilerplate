@@ -36,6 +36,7 @@
     "connect-history-api-fallback": "^1.2.0",
     "css-loader": "^0.23.1",
     "del": "^2.2.1",
+    "dummy-json": "^2.0.0",
     "ejs": "^2.5.1",
     "eslint": "^3.13",
     "eslint-config-airbnb": "^9.0.1",
