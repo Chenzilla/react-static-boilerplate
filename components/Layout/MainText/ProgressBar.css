@@ -1,0 +1,13 @@
+.container {
+	width: 80%;
+	height: 30px;
+	background-color: #D8D8D8;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 40px;
+	margin: auto;
+
+	border-radius: 10px;
+}

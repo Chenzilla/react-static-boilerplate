@@ -1,0 +1,13 @@
+.container {
+	width: 30%;
+	height: 90vh;
+	background: #D0D0D0;
+	float: right;
+	display: flex;
+	position: relative;
+}
+
+.list {
+	width: 100%;
+	padding: 0;
+}
