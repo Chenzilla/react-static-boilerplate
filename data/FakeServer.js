@@ -1,24 +1,14 @@
 var dummyjson = require('dummy-json');
 
-var myHelpers = {
-	sentenceNumber: function() {
-		return dummyjson.utils.randomInt(10, 15);
-	},
-	sentenceLength: function() {
-		return dummyjson.utils.randomInt(10, 25);
-	},
-	questionNumber: function() {
-		return dummyjson.utils.randomInt(5, 8);
-	},
-	questionLength: function() {
-		return dummyjson.utils.randomInt(5, 15);
-	},
-	questionType: function() {
-		return dummyjson.utils.randomArrayItem(["false_negative", "categorical", "contextual"]);
-	}
+const myHelpers = {
+	sentenceNumber: () => dummyjson.utils.randomInt(10, 15),
+	sentenceLength: () => dummyjson.utils.randomInt(10, 25),
+	questionNumber: () => dummyjson.utils.randomInt(5, 8),
+	questionLength: () => dummyjson.utils.randomInt(5, 15),
+	questionType: () => dummyjson.utils.randomArrayItem(["false_negative", "categorical", "contextual"])
 }
 
-var myPartials = {
+let myPartials = {
 	sentences: `[\
 		{{#repeat (sentenceNumber)}}\
 			"{{lorem (sentenceLength)}}"\
@@ -35,7 +25,7 @@ var myPartials = {
 	}`
 };
 
-var template = `{
+let template = `{
 	"records": [
 		{{#repeat 20}}
 			{	"id": {{@index}},
@@ -49,9 +39,10 @@ var template = `{
 	]
 }`
 
-var result = dummyjson.parse(template, {helpers: myHelpers, partials: myPartials}); // Returns a string
-var database = JSON.parse(result)["records"];
+let result = dummyjson.parse(template, {helpers: myHelpers, partials: myPartials}); // Returns a string
+let database = JSON.parse(result)["records"];
 
-function FakeServerCall(){
+const FakeServerCall = () => {
 	return database[Math.floor(Math.random()*database.length)];
 }
+console.log(FakeServerCall());
