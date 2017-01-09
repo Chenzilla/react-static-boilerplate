@@ -1,4 +1,4 @@
-import Reactfrom 'react';
+import React from 'react';
 import ProgressBar from './ProgressBar';
 import s from './MainText.css';
 
