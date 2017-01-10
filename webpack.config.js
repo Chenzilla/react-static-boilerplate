@@ -38,7 +38,8 @@ const config = {
     /* The main entry point of your JavaScript application */
     './main.js',
   ],
-
+  node: {fs: "empty"},
+  
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, './public/dist'),
