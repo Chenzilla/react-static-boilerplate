@@ -12,8 +12,6 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import promise from './promise';
-
-
 import documentsReducer from './reducers/documents.js';
 
 var isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
@@ -23,7 +21,6 @@ var logger = createLogger({
   duration: true,
 });
 
-
 let createReducer = function(asyncReducers) {
   return combineReducers({
     documents:documentsReducer
@@ -31,7 +28,5 @@ let createReducer = function(asyncReducers) {
 }
 
 const store = createStore(createReducer(), compose(applyMiddleware(thunk,promise,logger)));
-
-
 
 export default store;

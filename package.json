@@ -40,6 +40,7 @@
     "del": "^2.2.1",
     "dummy-json": "^2.0.0",
     "ejs": "^2.5.1",
+    "enzyme": "^2.7.0",
     "eslint": "^3.13",
     "eslint-config-airbnb": "^14.0.0",
     "eslint-plugin-import": "^2.2.0",
