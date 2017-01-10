@@ -28,7 +28,7 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <Layout className={s.content}>
+      <Layout className={s.content} document={this.props.current.document} question={this.props.current.question}>
         <div dangerouslySetInnerHTML={{ __html: html }} />
         <h4>Articles</h4>
         <ul>
@@ -47,7 +47,7 @@ class HomePage extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    documents:state.documents,
+    current:state.current,
   };
 }
 

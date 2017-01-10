@@ -10,7 +10,7 @@ class Layout extends React.Component {
     return (
       <div className={s.container}>
         <Header/>
-        <MainText/>
+        <MainText document={this.props.document} question={this.props.question}/>
         <Navigation/>
       </div>
     );

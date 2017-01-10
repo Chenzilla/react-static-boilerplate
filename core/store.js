@@ -13,6 +13,7 @@ import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
 import promise from './promise';
 import documentsReducer from './reducers/documents.js';
+import currentReducer from './reducers/current.js';
 
 var isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
 var logger = createLogger({
@@ -23,7 +24,8 @@ var logger = createLogger({
 
 let createReducer = function(asyncReducers) {
   return combineReducers({
-    documents:documentsReducer
+    documents:documentsReducer,
+    current:currentReducer
   });
 }
 

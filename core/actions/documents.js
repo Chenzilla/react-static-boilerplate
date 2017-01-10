@@ -1,4 +1,5 @@
 import getDocumentsFromServer from '../lib/api.js';
+import {setCurrentDocument} from './current.js';
 
 function getDocuments(){
   return dispatch => {
@@ -16,6 +17,9 @@ function loadDocuments(){
         type: 'LOAD_DOCUMENTS',
         documents: documents
       });
+      if(documents.length>0){
+        dispatch(setCurrentDocument(documents[0]));
+      }
     });
   }
 }
