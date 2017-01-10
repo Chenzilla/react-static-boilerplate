@@ -8,20 +8,30 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import thunk from 'redux-thunk';
+import createLogger from 'redux-logger';
+import promise from './promise';
 
-// Centralized application state
-// For more information visit http://redux.js.org/
-const initialState = { count: 0 };
 
-const store = createStore((state = initialState, action) => {
-  // TODO: Add action handlers (aka "reducers")
-  switch (action.type) {
-    case 'COUNT':
-      return { ...state, count: (state.count) + 1 };
-    default:
-      return state;
-  }
+import documentsReducer from './reducers/documents.js';
+
+var isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
+var logger = createLogger({
+  predicate: (getState, action) => isDebuggingInChrome,
+  collapsed: true,
+  duration: true,
 });
+
+
+let createReducer = function(asyncReducers) {
+  return combineReducers({
+    documents:documentsReducer
+  });
+}
+
+const store = createStore(createReducer(), compose(applyMiddleware(thunk,promise,logger)));
+
+
 
 export default store;

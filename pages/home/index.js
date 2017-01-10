@@ -12,6 +12,8 @@ import React, { PropTypes } from 'react';
 import Layout from '../../components/Layout';
 import s from './styles.css';
 import { title, html } from './index.md';
+import { connect } from 'react-redux';
+import getDocuments from '../../core/actions/documents.js';
 
 class HomePage extends React.Component {
 
@@ -21,6 +23,7 @@ class HomePage extends React.Component {
 
   componentDidMount() {
     document.title = title;
+    this.props.dispatch(getDocuments());
   }
 
   render() {
@@ -42,4 +45,10 @@ class HomePage extends React.Component {
 
 }
 
-export default HomePage;
+function mapStateToProps(state) {
+  return {
+    documents:state.documents,
+  };
+}
+
+export default connect(mapStateToProps)(HomePage);
